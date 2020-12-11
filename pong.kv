@@ -1,10 +1,12 @@
-
 <PongBall>:
     size: 50, 50 
     canvas:
         Ellipse:
             pos: self.pos
-            size: self.size          
+            size: self.size
+
+        Color:
+            rgb: 0.1, 0.5, 0.2
 
 <PongPaddle>:
     size: 25, 200
@@ -12,6 +14,9 @@
         Rectangle:
             pos: self.pos
             size: self.size
+        Color:
+            rgb: 0.4, 0.1, 0.7
+
 
 <PongGame>:
     ball: pong_ball
@@ -20,8 +25,20 @@
     
     canvas:
         Rectangle:
-            pos: self.center_x - 5, 0
-            size: 10, self.height
+            pos: self.center_x - 3, 0
+            size: 6, self.height
+    
+    Label:
+        font_size: 40  
+        center_x: root.width / 4
+        top: root.top - 100
+        text: "Hossein"
+        
+    Label:
+        font_size: 40  
+        center_x: root.width * 3 / 4
+        top: root.top - 100
+        text: "Maryam"
     
     Label:
         font_size: 70  
@@ -42,10 +59,11 @@
     PongPaddle:
         id: player_left
         x: root.x
-        center_y: root.center_y
+        center_y: root.center_y-100
+        
         
     PongPaddle:
         id: player_right
         x: root.width - self.width
-        center_y: root.center_y
+        center_y: root.center_y+100
         
